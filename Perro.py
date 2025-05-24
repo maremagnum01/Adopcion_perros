@@ -1,4 +1,14 @@
 class Perro(object):
+    instance = None
+    primer_clase_perro = None
+    
+    def __new__(cls, *args, **kwargs):
+        if cls.instance is None:
+            cls.instance = super().__new__(cls)
+            cls.primer_clase_perro = args[1]
+            print(f"Se inicializo por primera vez la clase 'Perro', bajo el nombre de: {cls.primer_clase_perro}")
+        return cls.instance
+    
     ##el frozenset funciona para congelar la constante y que no cambie por accidente
     ## Las constantes se definen en mayusculas 
     LISTA_ESTADOS = frozenset({'Disponible', 'Reservado', 'Adoptado'})
@@ -76,7 +86,7 @@ class Perro(object):
         if new_estado in self.LISTA_ESTADOS:
             self.__estado = new_estado
         else:
-            raise ValueError(f"Error al cambiar estado, solo pueden ser estados de esta lista: {self.LISTA_ESTADOS}")
+            raise ValueError(f"Error al cambiar estado, solo pueden ser un estado de esta lista: {self.LISTA_ESTADOS}")
         
     ## al realizar print(objeto ya instanciado) muestra info del objeto en cuestion 
     def __repr__(self):

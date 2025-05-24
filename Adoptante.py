@@ -3,17 +3,17 @@ import random
 class Adoptante(object):
     #Guardar instancia + primer clase creada
     instance = None
-    primer_clase = None
+    primer_clase_adoptante = None
     def __new__(cls, *args, **kwargs):
         if cls.instance is None:
             cls.instance = super().__new__(cls)
-            cls.primer_clase = args[0]
-            print(f"Se inicializo por primera vez la clase 'Adoptante', bajo el nombre de: {cls.primer_clase}")
-        else:
-            print(f"Ya existe una clase que inicializa por primera vez la clase 'Adoptante', es la clase {cls.primer_clase} ")
+            cls.primer_clase_adoptante = args[0]
+            print(f"Se inicializo por primera vez la clase 'Adoptante', bajo el nombre de: {cls.primer_clase_adoptante}")
+        # else:
+        #     print(f"Ya existe una clase que inicializa por primera vez la clase 'Adoptante', es la clase {cls.primer_clase_adoptante} ")
         return cls.instance
     
-    ##Constante
+    ##Constante de preferencias 
     LISTA_PREFERENCIAS = frozenset({"raza","edad","tamanio","ninguna","no se aclaro"})
     
     def __init__(self, nombre: str, dni: int, email: str, preferencia= None):
@@ -107,7 +107,7 @@ class Adoptante(object):
         else:
             raise ValueError(f"Para visualizar el historial, debe estar registrado")
                 
-    ## info
+    ## mostrar info
     def __repr__(self):
         return f"Adoptante(Nombre: {self.nombre}, DNI: {self.dni}, Email: {self.email}, Preferencia: {self.preferencia}, Historial: {self.historial_adopciones})"
     

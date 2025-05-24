@@ -1,19 +1,22 @@
 class Perro(object):
-    instance = None
-    primer_clase_perro = None
+    # instance = None
+    # primer_clase_perro = None
     
-    def __new__(cls, *args, **kwargs):
-        if cls.instance is None:
-            cls.instance = super().__new__(cls)
-            cls.primer_clase_perro = args[1]
-            print(f"Se inicializo por primera vez la clase 'Perro', bajo el nombre de: {cls.primer_clase_perro}")
-        return cls.instance
+    # def __new__(cls, *args, **kwargs):
+    #     if cls.instance is None:
+    #         cls.instance = super().__new__(cls)
+    #         cls.primer_clase_perro = args[0]
+    #         print(f"Se inicializo por primera vez la clase 'Perro', bajo el nombre de: {cls.primer_clase_perro}")
+    #     return cls.instance
     
     ##el frozenset funciona para congelar la constante y que no cambie por accidente
     ## Las constantes se definen en mayusculas 
     LISTA_ESTADOS = frozenset({'Disponible', 'Reservado', 'Adoptado'})
-    def __init__(self, id: int, nombre: str, raza: str, edad: int, temperamento: str, peso: float, salud: str, tamanio: str, estado='Disponible'):
-        self.__id = id
+    
+    id_actual = 1
+    def __init__(self, nombre: str, raza: str, edad: int, temperamento: str, peso: float, salud: str, tamanio: str, estado='Disponible'):
+        self.__id = Perro.id_actual
+        Perro.id_actual += 1
         self.__nombre = nombre
         self.__raza = raza
         self.__edad = edad
@@ -92,5 +95,5 @@ class Perro(object):
     def __repr__(self):
         return f"Perro(ID: {self.id}, Nombre: {self.nombre}, Raza: {self.raza}, Edad: {self.edad}, Temperamento: {self.temperamento}, Peso en Kg: {self.peso}, Salud: {self.salud}, Tamanio: {self.tamanio}, Estado: {self.estado})"
 
-tobi = Perro(1, "Tobi", "Golden", 3, "jugueton", 25.3, "Perfecto", "mediano", "Reservado")
-print(tobi)
+# tobi = Perro("Tobi", "Golden", 3, "jugueton", 25.3, "Perfecto", "mediano", "Reservado")
+# print(tobi)

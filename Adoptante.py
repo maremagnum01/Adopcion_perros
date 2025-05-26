@@ -73,9 +73,6 @@ class Adoptante(object):
         self.__registrado = new_registro    
     
     ## Metodos
-    def registrarse(self):
-        print(f"Se registro para adopciones, el usuario: {self.nombre}")
-        self.registro = True
     def agregar_adopcion(self, perro):
         if self.registro == True:
             self.__historial_adopciones.append(perro)
@@ -84,15 +81,18 @@ class Adoptante(object):
             raise ValueError(f"Se debe registrar para iniciar una adopcion")
         
     def modificar_datos(self, nombre: str = None, dni: int = None, email: str = None, preferencia = None):
-        if nombre:
-            self.nombre = nombre
-        if dni:
-            self.dni = dni
-        if email:
-            self.email = email
-        if preferencia:
-            self.preferencia = preferencia
-        print(f"Datos modificados, ahora tus nuevos datos son: {Adoptante.__repr__(self)}")
+        if self.registro == True:
+            if nombre:
+                self.nombre = nombre
+            if dni:
+                self.dni = dni
+            if email:
+                self.email = email
+            if preferencia:
+                self.preferencia = preferencia
+            print(f"Datos modificados, ahora tus nuevos datos son: {Adoptante.__repr__(self)}")
+        else:
+            raise ValueError(f"Se debe registrar para modificar sus datos")
         
     def mostrar_historial(self):
         if self.registro == True:
@@ -113,7 +113,6 @@ class Adoptante(object):
     
     
 juan = Adoptante('Juan', 2020202020, "eee@eeee.com")
-roberto = Adoptante('roberto', 30303030,'aaaa@aaa.com')
 # juan.registrarse()
 # juan.agregar_adopcion("tobi")
 # juan.mostrar_historial()

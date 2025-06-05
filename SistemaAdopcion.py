@@ -1,4 +1,3 @@
-from abc import ABC, abstractclassmethod
 from Perro import Perro
 from Adoptante import Adoptante
 import random
@@ -6,14 +5,43 @@ import random
 class SistemaAdopcion(object):
     def __init__(self):
         self.perros = []
+        self.perros_adoptados = []
     def cargarPerro(self, perro: Perro):
         self.perros.append(perro)
         print(f"Se cargo a {perro.nombre} a la lista de perros para adoptar")
         print(f"La lista actualizada: {[p.nombre for p in self.perros]}")
     
+    def eliminarRegistro(self, perro: Perro | int):
+        if isinstance(perro, Perro):
+            id = perro.id
+        elif isinstance(perro, int):
+            id = perro
+        else: 
+            raise ValueError("No se reconoce el parametro")
+            
+        i = 0
+        while i < len(self.perros):
+            p = self.perros[i].id
+            if p == id:
+                print(f'Se encontro coincidencia: {self.perros[i].nombre}')
+                valor = input("Quieres eliminarlo de la lista de adopcion? ").lower()
+                if valor == 'si':
+                    del self.perros[i]
+                    print('Perro eliminado de la lista correctamente, esta es la lista actual:')
+                    print(self.perros)
+            i += 1
+        
     def registrarse(self, adoptante: Adoptante):
         adoptante.registro = True
         print(f"Se registro para adopciones, el usuario: {adoptante.nombre}")
+        
+    def mostrarPerros(self):
+        i = 0
+        print("Esta es la lista de perros:")
+        while i < len(self.perros):
+            p = self.perros[i]
+            print(f"nombre: {p.nombre}, raza: {p.raza}, edad: {p.edad}, temperamento: {p.temperamento}, peso: {p.peso}, salud: {p.salud}, tamanio: {p.tamanio}, estado: {p.estado}")
+            i += 1
         
     def sugerencia(self, adoptante: Adoptante):
         if not self.perros:
@@ -45,6 +73,36 @@ class SistemaAdopcion(object):
         else:
             raise ValueError('Error de preferencia')
         
+    def adoptar(self, adoptante: Adoptante, perro: Perro | int | str):
+                        # mandar perro adoptado a un array de perros adoptados + el nombre del adoptante
+                        # crear verificacion del parametro
+        i = 0
+        if isinstance(perro, Perro):
+            id = perro.id
+        elif isinstance(perro, int):
+            id = perro
+        elif isinstance(perro, str):
+            id = perro
+        else:
+            raise ValueError(f'Error, parametro no identificado')
+        
+        while i < len(self.perros):
+            p = self.perros[i]
+            if p.id == id or p.nombre == id:
+                if p.estado == 'Disponible':
+                    pregunta = input(f'Estas seguro que quieres adoptar a: {self.perros[i].nombre}? ').lower()
+                    if pregunta == 'si':
+                        print(f'Perfecto! Te felicito {adoptante.nombre} por la adopcion de: {self.perros[i].nombre}')
+                        self.perros_adoptados.append(self.perros[i])
+                        del self.perros[i]
+                    else:
+                        print(f"Seguiremos buscando un perro que se adapte a lo que busca.")
+                    return 
+                else:
+                    print(F"Lo siento el estado de ese perro es: {self.perros[i].estado}, por ende no puede adoptarlo")
+                    return
+            i += 1
+        raise ValueError(f'Perro inexistente en la lista.')
 
 max = Perro('max','siberiano',5,'hiperactivo', 40, 'saludable', 'grande')
 moro = Perro('moro', 'callejero', 7, 'esquizofrenico', 35, 'saludable', 'mediano')
@@ -55,5 +113,8 @@ sistema.cargarPerro(max)
 sistema.cargarPerro(moro)
 sistema.cargarPerro(shago)
 # sistema.registrarse(roberto)
-sistema.sugerencia(roberto)
+# sistema.sugerencia(roberto)
 # print(sistema.perros)
+# sistema.mostrarPerros()
+# sistema.eliminarRegistro(2)
+sistema.adoptar(roberto, 'max')

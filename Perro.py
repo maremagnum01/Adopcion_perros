@@ -1,14 +1,4 @@
 class Perro(object):
-    # instance = None
-    # primer_clase_perro = None
-    
-    # def __new__(cls, *args, **kwargs):
-    #     if cls.instance is None:
-    #         cls.instance = super().__new__(cls)
-    #         cls.primer_clase_perro = args[0]
-    #         print(f"Se inicializo por primera vez la clase 'Perro', bajo el nombre de: {cls.primer_clase_perro}")
-    #     return cls.instance
-    
     ##el frozenset funciona para congelar la constante y que no cambie por accidente
     ## Las constantes se definen en mayusculas 
     LISTA_ESTADOS = frozenset({'Disponible', 'Reservado', 'Adoptado'})

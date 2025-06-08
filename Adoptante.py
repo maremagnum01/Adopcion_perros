@@ -1,18 +1,6 @@
 import random
 
 class Adoptante(object):
-    #Guardar instancia + primer clase creada
-    instance = None
-    primer_clase_adoptante = None
-    def __new__(cls, *args, **kwargs):
-        if cls.instance is None:
-            cls.instance = super().__new__(cls)
-            cls.primer_clase_adoptante = args[0]
-            print(f"Se inicializo por primera vez la clase 'Adoptante', bajo el nombre de: {cls.primer_clase_adoptante}")
-        # else:
-        #     print(f"Ya existe una clase que inicializa por primera vez la clase 'Adoptante', es la clase {cls.primer_clase_adoptante} ")
-        return cls.instance
-    
     ##Constante de preferencias 
     LISTA_PREFERENCIAS = frozenset({"raza","edad","tamanio","ninguna","no se aclaro"})
     
@@ -57,7 +45,7 @@ class Adoptante(object):
         self.__email = new_email
     @preferencia.setter
     def preferencia(self, new_preferencia):
-        if new_preferencia is None:
+        if new_preferencia is None or new_preferencia == "":
             ## En caso de no aclarar o no tener ninguna preferencia, automaticamente se autoselecionara uno de los 2 
             opciones = ["ninguna", "no se aclaro"]
             self.__preferencia = random.choice(opciones)
@@ -67,7 +55,8 @@ class Adoptante(object):
         if new_preferencia in self.LISTA_PREFERENCIAS:
             self.__preferencia = new_preferencia
         else:
-            raise ValueError(f"Las preferencias debe ser una de la lista: {' '.join(self.LISTA_PREFERENCIAS)}")
+            # raise ValueError(f"Las preferencias debe ser una de la lista: {' '.join(self.LISTA_PREFERENCIAS)}")
+            print("La preferencia es solo por categoria de raza, edad o tamanio, por favor, seleccione 1 o si no tiene preferencia, deje vacio.")
     @registro.setter
     def registro(self, new_registro):
         self.__registrado = new_registro    

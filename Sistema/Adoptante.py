@@ -102,8 +102,3 @@ class Adoptante(object):
     
     
 juan = Adoptante('Juan', 2020202020, "eee@eeee.com")
-# juan.registrarse()
-# juan.agregar_adopcion("tobi")
-# juan.mostrar_historial()
-# print(juan.nombre)
-# juan.modificar_datos("nuevo", 1010101010, "2222@2222.com", None)

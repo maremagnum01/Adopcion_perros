@@ -28,6 +28,7 @@ class SistemaAdopcion(object):
         print(f"La lista actualizada: {[p.nombre for p in self.perros]}")
         with open('logs.log', 'a+') as log:
             log.write(f'[{fecha_hora}]Se ingreso en el sistema al perro: {perro.nombre} \n')
+        return True # Esta linea solo se usa para realizar Test
     
     def eliminarRegistro(self, perro: Perro | int):
         if isinstance(perro, Perro):
@@ -60,6 +61,7 @@ class SistemaAdopcion(object):
         print(f"Se registro para adopciones, el usuario: {adoptante.nombre}")
         with open('logs.log', 'a+') as log:
             log.write(f'[{fecha_hora}]El usuario {adoptante.nombre} se registro para poder adoptar. \n')
+        return True # Esta linea solo se utiliza para realizar Test
         
     def mostrarPerros(self):
         i = 0

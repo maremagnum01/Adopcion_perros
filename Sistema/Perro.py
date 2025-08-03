@@ -85,5 +85,6 @@ class Perro(object):
     def __repr__(self):
         return f"Perro(ID: {self.id}, Nombre: {self.nombre}, Raza: {self.raza}, Edad: {self.edad}, Temperamento: {self.temperamento}, Peso en Kg: {self.peso}, Salud: {self.salud}, Tamanio: {self.tamanio}, Estado: {self.estado})"
 
-# tobi = Perro("Tobi", "Golden", 3, "jugueton", 25.3, "Perfecto", "mediano", "Reservado")
-# print(tobi)
+if __name__ == "__main__":
+    tobi = Perro("Tobi", "Golden", 3, "jugueton", 25.3, "Perfecto", "mediano", "Reservado")
+    print(tobi)

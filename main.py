@@ -3,6 +3,7 @@ from Sistema.Adoptante import Adoptante
 from Sistema.Perro import Perro
 from datetime import date, datetime
 
+#perros cargados en el sistema de forma predeterminada.
 max = Perro('max','siberiano',5,'hiperactivo', 40, 'saludable', 'grande')
 moro = Perro('moro', 'callejero', 7, 'esquizofrenico', 35, 'saludable', 'mediano')
 shago = Perro('shago', 'caniche', 10, 'enfermito mental',5, 'bien', 'chico')

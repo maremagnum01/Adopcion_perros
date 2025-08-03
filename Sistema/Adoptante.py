@@ -100,5 +100,7 @@ class Adoptante(object):
     def __repr__(self):
         return f"Adoptante(Nombre: {self.nombre}, DNI: {self.dni}, Email: {self.email}, Preferencia: {self.preferencia}, Historial: {self.historial_adopciones})"
     
-    
-juan = Adoptante('Juan', 2020202020, "eee@eeee.com")
+#Uso de Dunder Main, para testear script Adoptante.
+if __name__ == "__main__":   
+    juan = Adoptante('Juan', 2020202020, "eee@eeee.com")
+    print(juan)

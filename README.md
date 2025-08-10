@@ -2,7 +2,7 @@
 
 Este proyecto implementa un sistema completo de gestión de adopciones de perros, desarrollado en Python. Permite a los usuarios (adoptantes) registrarse, ver perros disponibles, recibir sugerencias personalizadas y adoptar perros. El sistema incluye logging de actividades, tests unitarios y una interfaz de consola interactiva.
 
-## 🏗️ Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 tp_adopcion_pyPuro/
@@ -23,28 +23,28 @@ tp_adopcion_pyPuro/
 └── venv/                  # Entorno virtual (no incluido en git)
 ```
 
-## ✨ Características Principales
+## Características Principales
 
-### 🔐 Gestión de Adoptantes
+### Gestión de Adoptantes
 - **Creación de perfiles**: Nombre, DNI, email y preferencias (raza, edad, tamaño)
 - **Sistema de registro**: Los adoptantes deben registrarse para poder adoptar
 - **Modificación de datos**: Actualización de información personal (requiere registro previo)
 - **Historial de adopciones**: Seguimiento de todas las adopciones realizadas
 - **Validación de preferencias**: Sistema automático de asignación de preferencias
 
-### 🐕 Gestión de Perros
+### Gestión de Perros
 - **Registro completo**: ID automático, nombre, raza, edad, temperamento, peso, salud, tamaño
 - **Estados de adopción**: Disponible, Reservado, Adoptado
 - **Carga y eliminación**: Gestión completa del inventario de perros
 - **Información detallada**: Todos los datos relevantes para la adopción
 
-### 🎯 Sistema de Sugerencias Inteligentes
+### Sistema de Sugerencias Inteligentes
 - **Por edad**: Recomienda el perro más joven disponible
 - **Por tamaño**: Sugiere el perro más pequeño (chico → mediano → grande)
 - **Por raza**: Lista todos los perros de raza específica (excluyendo callejeros)
 - **Aleatorio**: Recomendación automática cuando no hay preferencias específicas
 
-### 📊 Sistema de Logging
+### Sistema de Logging
 - **Registro automático**: Todas las acciones importantes se registran con timestamp
 - **Actividades registradas**:
   - Creación de usuarios
@@ -54,7 +54,7 @@ tp_adopcion_pyPuro/
   - Consultas de historial
   - Finalización del sistema
 
-## 🧪 Tests Unitarios
+## Tests Unitarios
 
 El proyecto incluye una suite de tests unitarios para validar la funcionalidad:
 
@@ -68,7 +68,7 @@ pytest Tests/test_adoptante.py
 pytest Tests/test_perro.py
 ```
 
-## 🚀 Cómo Ejecutar
+## Cómo Ejecutar
 
 ### Prerrequisitos
 - Python 3.6 o superior
@@ -94,7 +94,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-## 📋 Menú de Opciones
+## Menú de Opciones
 
 El sistema presenta un menú interactivo con las siguientes opciones:
 
@@ -110,7 +110,7 @@ El sistema presenta un menú interactivo con las siguientes opciones:
 10. **Mostrar perros adoptados** - Ver historial de adopciones del sistema
 11. **Salir** - Finalizar el programa
 
-## 🔧 Arquitectura Técnica
+## Arquitectura Técnica
 
 ### Patrón Singleton
 La clase `SistemaAdopcion` implementa el patrón Singleton para asegurar una única instancia del sistema en toda la aplicación.
@@ -128,7 +128,7 @@ Todas las clases utilizan encapsulación con atributos privados (`__atributo`) y
 - Validaciones en tiempo de ejecución
 - Mensajes informativos para el usuario
 
-## 📝 Logs del Sistema
+## Logs del Sistema
 
 El sistema genera logs automáticamente en `logs.log` con el formato:
 ```
@@ -140,7 +140,7 @@ Ejemplos de logs:
 - `[02-08-2025 22:44:39]Se pidio lista de perros`
 - `[02-08-2025 22:45:19]Finalizacion del sistema`
 
-## 🎯 Casos de Uso
+## Casos de Uso
 
 ### Flujo Típico de Adopción
 1. Crear perfil de adoptante (opción 1)
@@ -155,7 +155,7 @@ Ejemplos de logs:
 - Consultar estadísticas de adopciones
 - Revisar logs de actividad
 
-## 🔍 Dependencias
+## Dependencias
 
 - **pytest**: Framework de testing
 - **iniconfig**: Configuración de archivos INI
@@ -163,11 +163,11 @@ Ejemplos de logs:
 - **pluggy**: Sistema de plugins
 - **Pygments**: Resaltado de sintaxis
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto es parte de un trabajo práctico de Programación Orientada a Objetos.
 
-## 🤝 Contribución
+## Contribución
 
 Para contribuir al proyecto:
 1. Fork el repositorio
@@ -176,6 +176,6 @@ Para contribuir al proyecto:
 4. Ejecuta los tests
 5. Envía un pull request
 
-## 📞 Soporte
+## Soporte
 
 Para reportar bugs o solicitar nuevas características, por favor crea un issue en el repositorio del proyecto. 
